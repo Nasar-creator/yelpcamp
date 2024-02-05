@@ -14,10 +14,10 @@ const passport=require('passport');
 const pplocal=require('passport-local');
 const usermodel=require('./models/user.js')
 const mongodbstore=require('connect-mongo');
- const dburl=process.env.dburl
+//  const dburl=process.env.dburl
 // const dburl='mongodb://127.0.0.1:27017/yelpcamp'
 const store=mongodbstore.create({
-    mongoUrl:dburl,
+    mongoUrl:"mongodb+srv://nasar:Y9jz1IYh736EeXnS@cluster0.9fxhjdw.mongodb.net/?retryWrites=true&w=majority",
     touchAfter:24*60*60,
     crypto:{
         secret:"thisissecrete"
@@ -44,7 +44,7 @@ app.set('views',path.join(__dirname,'/views'))
 
 //
 const mongoose=require("mongoose");
-mongoose.connect(dburl)
+mongoose.connect("mongodb+srv://nasar:Y9jz1IYh736EeXnS@cluster0.9fxhjdw.mongodb.net/?retryWrites=true&w=majority")
 
 //checking for dbconnection 2
 

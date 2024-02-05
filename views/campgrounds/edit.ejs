@@ -1,0 +1,90 @@
+<% layout('layout/layout') %>
+
+
+    <div class="row">
+       <h1 class="text-center">Edit CampGround</h1>
+       <div class="col-6 offset-3">
+           <form action="/campgrounds/<%= campgroundedit._id %>?_method=put" method="post" novalidate class="validate-form"
+            enctype="multipart/form-data">
+               <div class="md-3">
+                   <label class="form-label" for="title">Title</label>
+                   <input class="form-control" type="text" id="title" name="campgrounds[title]" value="<%= campgroundedit.title %>" required>
+                   <div class="valid-feedback">
+                    Good
+                </div>
+                <div class="invalid-feedback">
+                    Please fill
+                </div>
+                </div>
+               <div class="mb-3">
+                   <label class="form-label" for="loc">Location</label>
+                   <input class="form-control" type="text" id="loc" name="campgrounds[location]" value="<%= campgroundedit.location %>" required>
+               
+                   <div class="valid-feedback">
+                    Good
+                </div>
+                <div class="invalid-feedback">
+                    Please fill
+                </div>
+                </div>
+
+               
+               
+               <div class="mb-3">
+                   <label class="form-label" for="price">Price</label>
+                   <div class="input-group">
+                       <span class="input-group-text" id="price-label">INR</span>
+                       <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                       aria-describedby="price-label" min="100" name="campgrounds[price]" value="<%= campgroundedit.price %>" required>
+                   </div>
+                   <div class="valid-feedback">
+                        Good
+                    </div>
+                    <div class="invalid-feedback">
+                         Please fill
+                    </div>
+               </div>
+               
+               <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campgrounds[des]" required><%= campgroundedit.des %></textarea>
+                <div class="valid-feedback">
+                 Good
+             </div>
+             <div class="invalid-feedback">
+                  Please fill
+             </div>
+            </div>
+
+            <div class="input-group custom-file mb-3">
+                <input type="file" class="form-control" id="image" name="image" multiple>
+                <label class="input-group-text custom-file-label" for="image">Upload</label>
+            </div>
+            <div class="mb-3">
+                <% campgroundedit.images.forEach(function (img,i) { %>
+                    <br>
+                    <img src="<%= img.url %>"  class="img-thumbnail" alt="">
+                    <br>
+                    <div class="form-check-inline mb-3">
+                        
+                        <input type="checkbox" name="deleteImages[]" value="<%= img.filename %>" id="image-<%= i %>">
+                        <label for="image-<%= i %>">Delete</label>
+                    </div>
+                    
+                <% })  %>
+            </div>
+   
+   
+               <div class="mb-3">
+                   <button class="btn btn-info" >Update</button>
+               </div>
+               
+           </form>
+       
+           
+           <div class="card-body">
+            <a href="/campgrounds/<%= campgroundedit._id %>" class="card-link btn btn-danger">Cancle</a>
+                </div>
+        </div>
+    </div>
+   

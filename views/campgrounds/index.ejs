@@ -37,8 +37,7 @@
             </div>
     <% } %>
     <script>
-        // const maptoken='<%-process.env.mapbox_token%>';
-        const maptoken="pk.eyJ1IjoibmFzYXIyMTEwIiwiYSI6ImNsczBuN3J0eDAyazkycnFwaDFqZnh1YXkifQ.cmrIybHZR6t7xAcBOcljQQ"
+        const maptoken='<%-process.env.mapbox_token%>';
         const campgrounds={features:<%- JSON.stringify(campgroundsdisplay)%>}
     </script>
 
